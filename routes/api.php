@@ -18,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::prefix('admin')->group(function () {
+    
     Route::post('/register', [UserAuthController::class, 'register']);
     Route::post('/login', [UserAuthController::class, 'login']);
-    Route::post('/logout', [UserAuthController::class, 'logout'])->middleware('auth:sanctum');
+
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/logout', [UserAuthController::class, 'logout']);
+
+    });
 });
