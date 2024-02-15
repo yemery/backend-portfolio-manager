@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ToolCategoryController;
+use App\Http\Controllers\ToolController;
 use App\Http\Controllers\UserAuthController;
+use App\Models\ToolCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*
@@ -19,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::prefix('admin')->group(function () {
-    
     Route::post('/register', [UserAuthController::class, 'register']);
     Route::post('/login', [UserAuthController::class, 'login']);
 
@@ -27,6 +30,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/logout', [UserAuthController::class, 'logout']);
 
         Route::resource('/projects', ProjectController::class);
+        Route::resource('/tools', ToolController::class);
+        Route::resource('/toolCategories', CategoryController::class);
     
       
     });
