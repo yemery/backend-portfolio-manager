@@ -2,10 +2,8 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ToolCategoryController;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\UserAuthController;
-use App\Models\ToolCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*

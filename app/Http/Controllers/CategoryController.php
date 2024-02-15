@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
+     /**
+     * Create the controller instance.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Category::class, 'category');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $id=auth()->user()->id;
 
         // $userToolCategories=User::find($id)->with('categories')->get();
         $userToolCategories=auth()->user()->categories;
@@ -32,7 +36,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'label' => 'required|unique:categories|string',
+            // 'label' => 'required|unique:categories|string',
+            'label' => 'required|string||unique:categories,label,NULL,id,user_id,' . auth()->id(),
            
         ], [
             'required' => 'The :attribute field is required.',
@@ -43,12 +48,21 @@ class CategoryController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(),422);
         }
+
+        // if (Category::where('label',$request->label)) {
+            
+        // }
+        // $category = Category::firstOrCreate([
+        //     'label' => $request->label,
+        //     'user_id'=>auth()->user()->id
+
+        // ]);
         $category = Category::create([
            'label'=>$request->label,
+           'user_id'=>auth()->user()->id
         ]);
         
-        // $category->users()->attach(auth()->user()->id);
-        auth()->user()->categories()->attach($category);
+     
         return response()->json([
             'message' => 'CategoryTool created seccufully',
         ],201);
@@ -95,7 +109,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        Category::destroy($category->id);
+        Category::destroy($category);
         return response()->json([
             'message'=>'deleted secc'
           ],200);

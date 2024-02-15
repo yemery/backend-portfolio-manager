@@ -13,7 +13,7 @@ class CategoryPolicy
      */
     public function viewAny(User $user): Response
     {
-        return $user==auth()->user()? Response::allow()
+        return $user===auth()->user()? Response::allow()
         : Response::denyWithStatus(401);
     }
 

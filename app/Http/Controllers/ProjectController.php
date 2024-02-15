@@ -24,8 +24,9 @@ class ProjectController extends Controller
     public function index()
     {
         $projects=auth()->user()->projects->with('tools')->get();
+        // $projects=Project::with('tools')->where('id',auth()->user()->id);
         
-        return response()->json($projects,200);
+        return response()->json([$projects],200);
     }
 
   
