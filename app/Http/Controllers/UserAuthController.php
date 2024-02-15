@@ -12,7 +12,7 @@ class UserAuthController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => ['required'],
+            'name' => ['required','unique:users'],
             'email' => ['required', 'email:rfc,dns', 'unique:users'],
             'password' => ['required'],
         ], [
@@ -22,7 +22,7 @@ class UserAuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors());
+            return response()->json($validator->errors(),422);
         }
         $user = User::create([
             'name' => $request->name,
@@ -35,7 +35,7 @@ class UserAuthController extends Controller
             'token' => $token,
             'Type' => 'Bearer',
 
-        ]);
+        ],201);
     }
    
     public function login(Request $request)
@@ -46,23 +46,26 @@ class UserAuthController extends Controller
         ], [
             'required' => 'The :attribute field is required.',
             'email:rfc,dns' => 'The :attribute must be a valid email address.',
+            'unique' => 'The :attribute must be unique.'
+
         ]);
         if ($validator->fails()) {
-            return response()->json($validator->errors());
+            return response()->json($validator->errors(),422);
         }
         $user=User::where('email',$request->email)->first();
         if (!$user || !Hash::check($request->password, $user->password) ) {
             return response()->json([
                 'message'=>'No such scredentials retry',
-            ]);
+            ],422);
         }
         $token = $user->createToken("API Token " . $user['email'])->plainTextToken;
         return response()->json([
             'user' => $user,
+            
             'token' => $token,
             'Type' => 'Bearer',
 
-        ]);
+        ],200);
 
     }
     public function logout()
@@ -72,7 +75,7 @@ class UserAuthController extends Controller
         return response()->json([
            'message'=>'logout secc',
         //    'tokens'=>$tokensCheck
-        ]);
+        ],200);
 
         
     }
