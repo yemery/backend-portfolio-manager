@@ -13,7 +13,7 @@ class CategoryPolicy
      */
     public function viewAny(User $user): Response
     {
-        return $user===auth()->user()? Response::allow()
+        return $user == auth()->user()? Response::allow()
         : Response::denyWithStatus(401);
     }
 
@@ -22,7 +22,7 @@ class CategoryPolicy
      */
     public function view(User $user, Category $category): Response
     {
-        return $user->id === $category->user_id
+        return $user->id == $category->user_id
         ? Response::allow()
         : Response::denyWithStatus(401);
     }
@@ -32,7 +32,7 @@ class CategoryPolicy
      */
     public function create(User $user): Response
     {
-        return $user==auth()->user()? Response::allow()
+        return $user == auth()->user()? Response::allow()
         : Response::denyWithStatus(401);
     }
 
@@ -41,7 +41,7 @@ class CategoryPolicy
      */
     public function update(User $user, Category $category): Response
     {
-        return $user->id === $category->user_id
+        return $user->id == $category->user_id
         ? Response::allow()
         : Response::denyWithStatus(401);
     }
@@ -51,7 +51,7 @@ class CategoryPolicy
      */
     public function delete(User $user, Category $category): Response
     {
-        return $user->id === $category->user_id
+        return $user->id == $category->user_id
         ? Response::allow()
         : Response::denyWithStatus(401);
     }
@@ -61,7 +61,7 @@ class CategoryPolicy
      */
     public function restore(User $user, Category $category): Response
     {
-        return $user->id === $category->user_id
+        return $user->id == $category->user_id
         ? Response::allow()
         : Response::denyWithStatus(401);
     }
@@ -71,7 +71,7 @@ class CategoryPolicy
      */
     public function forceDelete(User $user, Category $category): Response
     {
-        return $user->id === $category->user_id
+        return $user->id == $category->user_id
         ? Response::allow()
         : Response::denyWithStatus(401);
     }

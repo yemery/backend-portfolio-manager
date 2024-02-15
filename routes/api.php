@@ -29,7 +29,7 @@ Route::prefix('admin')->group(function () {
 
         Route::resource('/projects', ProjectController::class);
         Route::resource('/tools', ToolController::class);
-        Route::resource('/toolCategories', CategoryController::class);
+        Route::resource('/categories', CategoryController::class);
     
       
     });

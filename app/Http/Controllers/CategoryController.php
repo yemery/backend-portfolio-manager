@@ -74,6 +74,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         return response()->json($category,200);
+        // return response()->json('hee',200);
 
     }
 
@@ -109,7 +110,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        Category::destroy($category);
+        Category::destroy($category->id);
         return response()->json([
             'message'=>'deleted secc'
           ],200);
