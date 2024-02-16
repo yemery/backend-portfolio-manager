@@ -5,9 +5,9 @@ This repository contains the backend code for managing portfolios of developers 
 
 ## Technologies Used
 
-- Laravel 10
+- [Laravel 10](https://laravel.com/docs/10.x/installation)
 - MySQL
-- Laravel Sanctum
+- [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum)
 
 ## Requirements
 
