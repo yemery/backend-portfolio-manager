@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('sub_title');
-            $table->string('github_repo');
-            $table->string('host_url');
+            $table->string('github_repo')->nullable();
+            $table->string('host_url')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();

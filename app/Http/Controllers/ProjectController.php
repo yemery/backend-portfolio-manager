@@ -25,7 +25,7 @@ class ProjectController extends Controller
     {
         // $projects=auth()->user()->projects->with('tools')->get();
         $projects=Project::with('tools')->where('id',auth()->user()->id)->get();
-        return response()->json([$projects],200);
+        return response()->json($projects,200);
     }
 
   
@@ -57,10 +57,10 @@ class ProjectController extends Controller
            'host_url'=>$request->has('host_url') ? $request->host_url : null ,
            'user_id'=>auth()->user()->id
         ]);
+
+        $project->tools()->attach($request->tools);
         // $user->roles()->attach($roleId);
         
-
-
         return response()->json([
             'message' => 'Project created seccufully',
             // 'project'=>$request->all()

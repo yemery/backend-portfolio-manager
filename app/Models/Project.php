@@ -13,10 +13,10 @@ class Project extends Model
     protected $fillable = ['title','sub_title','github_repo','host_url','user_id'];
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class,'project_tool', 'project_id', 'tool_id');
+        return $this->belongsTo(User::class);
     }
     public function tools(): BelongsToMany
     {
-        return $this->belongsToMany(Tool::class);
+        return $this->belongsToMany(Tool::class,'project_tool', 'project_id', 'tool_id');
     }
 }
