@@ -1,66 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Developer Portfolio Backend
 
-## About Laravel
+This repository contains the backend code for managing the portfolio of a software engineer. It includes endpoints for managing projects, skills, blogs, personal information, and services and more
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Technologies Used
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Laravel 10
+- MySQL
+- Laravel Sanctum
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Setup
 
-## Learning Laravel
+1. Clone the repository.
+2. Install dependencies using `composer install`.
+3. Configure your `.env` file with appropriate database credentials.
+4. Run migrations and seed the database with `php artisan migrate`.
+5. Start the development server with `php artisan serve`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## API Endpoints
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Below are the RESTful endpoints provided by this backend. Screenshots using Insomnia are provided for testing purposes.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Projects
 
-## Laravel Sponsors
+- `GET /api/projects`: Get all projects.
+- `GET /api/projects/{id}`: Get a specific project by ID.
+- `POST /api/projects`: Create a new project.
+- `PUT /api/projects/{id}`: Update an existing project.
+- `DELETE /api/projects/{id}`: Delete a project.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Skills
 
-### Premium Partners
+- `GET /api/skills`: Get all skills.
+- `GET /api/skills/{id}`: Get a specific skill by ID.
+- `POST /api/skills`: Create a new skill.
+- `PUT /api/skills/{id}`: Update an existing skill.
+- `DELETE /api/skills/{id}`: Delete a skill.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Blogs
+
+- `GET /api/blogs`: Get all blogs.
+- `GET /api/blogs/{id}`: Get a specific blog by ID.
+- `POST /api/blogs`: Create a new blog.
+- `PUT /api/blogs/{id}`: Update an existing blog.
+- `DELETE /api/blogs/{id}`: Delete a blog.
+
+### Personal Information
+
+- `GET /api/personal-info`: Get personal information.
+- `PUT /api/personal-info`: Update personal information.
+
+### Services
+
+- `GET /api/services`: Get all services.
+- `GET /api/services/{id}`: Get a specific service by ID.
+- `POST /api/services`: Create a new service.
+- `PUT /api/services/{id}`: Update an existing service.
+- `DELETE /api/services/{id}`: Delete a service.
+
+## Testing
+
+Screenshots of testing the API endpoints using Insomnia are provided in the `screenshots` directory.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Contributions are welcome! Feel free to open issues or submit pull requests.
