@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
-// use App\Http\Requests\StoreProjectRequest;
-// use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -93,7 +91,7 @@ class ProjectController extends Controller
             'url' => 'The :attribute must be a valid HTTP or HTTPS URL.',
             'string' => 'The :attribute must be a string.',
             'max' => 'The :attribute must not be greater than :max characters.',
-            
+
         ]);
 
         if ($validator->fails()) {

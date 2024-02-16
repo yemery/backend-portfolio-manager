@@ -9,13 +9,22 @@ This repository contains the backend code for managing the portfolio of a softwa
 - MySQL
 - Laravel Sanctum
 
+## Requirements
+
+Before cloning this repository, ensure you have the following installed:
+
+- [PHP](https://www.php.net/downloads.php) (>= 7.4)
+- [XAMPP](https://www.apachefriends.org/download.html) or any other AMP (Apache, MySQL, PHP) stack
+- [Composer](https://getcomposer.org/download/)
+
 ## Setup
 
 1. Clone the repository.
 2. Install dependencies using `composer install`.
 3. Configure your `.env` file with appropriate database credentials.
-4. Run migrations and seed the database with `php artisan migrate`.
-5. Start the development server with `php artisan serve`.
+4. Generate an application key `php artisan key:generate`.
+5. Run migrations and seed the database with `php artisan migrate`.
+6. Start the development server with `php artisan serve`.
 
 ## API Endpoints
 
