@@ -1,7 +1,7 @@
 
 # Developer Portfolio Backend
 
-This repository contains the backend code for managing the portfolio of a software engineer. It includes endpoints for managing projects, skills, blogs, personal information, and services and more
+This repository contains the backend code for managing portfolios of developers across various domains. It includes endpoints for managing projects, skills, blogs, personal information, and services and more
 
 ## Technologies Used
 
