@@ -87,11 +87,13 @@ class ProjectController extends Controller
             'sub_title' => 'unique:projects|string|max:50',
             'github_repo' => 'url:http,https',
             'host_url' => 'url:http,https',
+            'is_published' => 'boolean',
         ], [
             'unique' => 'The :attribute must be unique.',
             'url' => 'The :attribute must be a valid HTTP or HTTPS URL.',
             'string' => 'The :attribute must be a string.',
             'max' => 'The :attribute must not be greater than :max characters.',
+            
         ]);
 
         if ($validator->fails()) {

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','sub_title','github_repo','host_url','user_id'];
+    protected $fillable = ['title','sub_title','github_repo','host_url','user_id','is_published'];
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
