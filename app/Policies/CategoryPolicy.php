@@ -11,10 +11,9 @@ class CategoryPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): Response
+    public function viewAny(User $user): bool
     {
-        return $user == auth()->user()? Response::allow()
-        : Response::denyWithStatus(401);
+        return true;
     }
 
     /**

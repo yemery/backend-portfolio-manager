@@ -10,15 +10,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Tool extends Model
 {
     use HasFactory;
-    protected $fillable = ['label','toolcategory_id'];
+    protected $fillable = ['label','category_id','user_id'];
 
     public function projects(): BelongsToMany
     {
         return $this->belongsToMany(Project::class,'project_tool', 'project_id', 'tool_id');
     }
-    public function toolCategory(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(ToolCategory::class);
+        return $this->belongsTo(Category::class);
     }
     public function users(): BelongsToMany
     {

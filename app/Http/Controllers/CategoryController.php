@@ -86,10 +86,10 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $validator = Validator::make($request->all(), [
-            'label' => 'required|unique:categories|string',
+            'label' => 'unique:categories|string',
            
         ], [
-            'required' => 'The :attribute field is required.',
+            // 'required' => 'The :attribute field is required.',
             'unique' => 'The :attribute must be unique.',
             'string' => 'The :attribute must be a string.',
         ]);

@@ -23,9 +23,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects=auth()->user()->projects->with('tools')->get();
-        // $projects=Project::with('tools')->where('id',auth()->user()->id);
-        
+        // $projects=auth()->user()->projects->with('tools')->get();
+        $projects=Project::with('tools')->where('id',auth()->user()->id)->get();
         return response()->json([$projects],200);
     }
 
@@ -54,10 +53,14 @@ class ProjectController extends Controller
         $project = Project::create([
            'title'=>$request->title,
            'sub_title'=>$request->sub_title,
-           'github_repo'=>$request->has('github_repo') ? $request->github_repo :"",
-           'host_url'=>$request->has('host_url') ? $request->host_url : "" ,
+           'github_repo'=>$request->has('github_repo') ? $request->github_repo :null,
+           'host_url'=>$request->has('host_url') ? $request->host_url : null ,
            'user_id'=>auth()->user()->id
         ]);
+        // $user->roles()->attach($roleId);
+        
+
+
         return response()->json([
             'message' => 'Project created seccufully',
             // 'project'=>$request->all()

@@ -21,7 +21,7 @@ class ProjectPolicy
      */
     public function view(User $user, Project $project): Response
     {
-        return $user->id === $project->user_id
+        return $user->id == $project->user_id
         ? Response::allow()
         : Response::denyWithStatus(401);
     }
@@ -40,7 +40,7 @@ class ProjectPolicy
      */
     public function update(User $user, Project $project): Response
     {
-        return $user->id === $project->user_id
+        return $user->id == $project->user_id
                 ? Response::allow()
                 : Response::denyWithStatus(401);
     }
@@ -50,7 +50,7 @@ class ProjectPolicy
      */
     public function delete(User $user, Project $project): Response
     {
-        return $user->id === $project->user_id
+        return $user->id == $project->user_id
                 ? Response::allow()
                 : Response::denyWithStatus(401);
     }
@@ -60,7 +60,7 @@ class ProjectPolicy
      */
     public function restore(User $user, Project $project): Response
     {
-        return $user->id === $project->user_id
+        return $user->id == $project->user_id
                 ? Response::allow()
                 : Response::denyWithStatus(401);
     }
@@ -70,7 +70,7 @@ class ProjectPolicy
      */
     public function forceDelete(User $user, Project $project): Response
     {
-        return $user->id === $project->user_id
+        return $user->id == $project->user_id
                 ? Response::allow()
                 : Response::denyWithStatus(401);
     }
